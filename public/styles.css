@@ -1,5 +1,3 @@
-// Creating the shared styles first
-const stylesContent = `
 /* ============================================
    LAWAID AI - SOULSYSTEM© COMPATIBLE STYLES
    ============================================ */
@@ -31,10 +29,6 @@ body {
   min-height: 100vh;
   line-height: 1.6;
 }
-
-/* ============================================
-   LAYOUT CONTAINERS
-   ============================================ */
 
 .app-shell {
   display: flex;
@@ -74,10 +68,6 @@ body {
   font-size: 1rem;
 }
 
-/* ============================================
-   IDENTITY PILL
-   ============================================ */
-
 .identity-pill {
   display: inline-block;
   background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
@@ -88,10 +78,6 @@ body {
   color: white;
   margin: 12px 0;
 }
-
-/* ============================================
-   FORM ELEMENTS
-   ============================================ */
 
 .form-group {
   margin-bottom: 20px;
@@ -148,17 +134,15 @@ body {
   color: var(--error-red);
   font-size: 0.85rem;
   margin-top: 8px;
+  display: none;
 }
 
 .success-message {
   color: var(--secondary-green);
   font-size: 0.85rem;
   margin-top: 8px;
+  display: none;
 }
-
-/* ============================================
-   BUTTONS
-   ============================================ */
 
 .btn-primary,
 .btn-secondary,
@@ -222,16 +206,13 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
+  margin-bottom: 12px;
 }
 
 .module-btn:hover {
   background: rgba(71, 194, 138, 0.2);
   border-color: var(--secondary-green);
 }
-
-/* ============================================
-   DASHBOARD COMPONENTS
-   ============================================ */
 
 .dash-card {
   background: rgba(255, 255, 255, 0.03);
@@ -248,44 +229,6 @@ body {
   color: var(--text-light);
 }
 
-.dash-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-/* ============================================
-   AI WELLNESS 360 COMPONENTS
-   ============================================ */
-
-.chip-button {
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid var(--border-color);
-  border-radius: 20px;
-  color: var(--text-light);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  flex: 1;
-  min-width: 100px;
-}
-
-.chip-button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--secondary-green);
-}
-
-.chip-button.chip-active {
-  background: var(--secondary-green);
-  border-color: var(--secondary-green);
-  color: white;
-}
-
-/* ============================================
-   PRODUCT CARDS (for LawAid offerings)
-   ============================================ */
-
 .product-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border-color);
@@ -293,6 +236,7 @@ body {
   padding: 24px;
   margin-bottom: 16px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -303,6 +247,7 @@ body {
 .product-card.selected {
   border-color: var(--secondary-green);
   background: rgba(71, 194, 138, 0.1);
+  border-width: 2px;
 }
 
 .product-header {
@@ -349,10 +294,6 @@ body {
   font-weight: bold;
 }
 
-/* ============================================
-   ORDER REVIEW / CART
-   ============================================ */
-
 .order-summary {
   background: rgba(255, 255, 255, 0.03);
   padding: 20px;
@@ -382,10 +323,6 @@ body {
   padding-top: 16px;
   border-top: 2px solid var(--border-color);
 }
-
-/* ============================================
-   RECEIPTS / TRANSACTIONS
-   ============================================ */
 
 .receipt-card {
   background: rgba(255, 255, 255, 0.05);
@@ -419,10 +356,6 @@ body {
   word-break: break-all;
 }
 
-/* ============================================
-   LOGOUT BUTTON
-   ============================================ */
-
 .logout-btn {
   text-align: center;
   padding: 12px;
@@ -435,10 +368,6 @@ body {
 .logout-btn:hover {
   color: var(--error-red);
 }
-
-/* ============================================
-   LOADING STATES
-   ============================================ */
 
 .loading-spinner {
   border: 3px solid rgba(255, 255, 255, 0.1);
@@ -455,9 +384,37 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-/* ============================================
-   MOBILE RESPONSIVENESS
-   ============================================ */
+.chip-button {
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-light);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 100px;
+}
+
+.chip-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--secondary-green);
+}
+
+.chip-button.chip-active {
+  background: var(--secondary-green);
+  border-color: var(--secondary-green);
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
 
 @media (max-width: 768px) {
   .card {
@@ -468,102 +425,9 @@ body {
     font-size: 2rem;
   }
   
-  .dash-grid {
-    grid-template-columns: 1fr;
-  }
-  
   .product-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
   }
-  
-  body {
-    padding-bottom: 80px;
-  }
 }
-
-/* ============================================
-   MOBILE NAVIGATION BAR
-   ============================================ */
-
-.mobile-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 62px;
-  background: var(--bg-dark);
-  border-top: 1px solid var(--border-color);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 999;
-}
-
-.mobile-nav button {
-  background: none;
-  border: none;
-  color: var(--text-light);
-  font-size: 0.78rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.mobile-nav button.active {
-  opacity: 1;
-  color: var(--secondary-green);
-}
-
-.mobile-nav button span {
-  margin-top: 3px;
-  font-size: 0.65rem;
-}
-
-/* ============================================
-   UTILITY CLASSES
-   ============================================ */
-
-.text-center {
-  text-align: center;
-}
-
-.mb-16 {
-  margin-bottom: 16px;
-}
-
-.mb-24 {
-  margin-bottom: 24px;
-}
-
-.mt-16 {
-  margin-top: 16px;
-}
-
-.mt-24 {
-  margin-top: 24px;
-}
-
-.hidden {
-  display: none;
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.gap-12 {
-  gap: 12px;
-}
-
-.gap-16 {
-  gap: 16px;
-}
-`;
